@@ -6,7 +6,7 @@ add on to that script by giving personality quirks
 
 add a random chance for the NPC to be a 'former adventurer' and thus have a class and some stats
 
-turn this script into a simple, pretty app with an unsaved log of NPCs
+turn this script into a simple, no-UI-effort  app with an unsaved log of NPCs
 
 allow user in app to make some limiting selections to the randomizer, ex: only human, or no elves
 
