@@ -3,6 +3,27 @@
 #SQL and mutliple files to come later
 
 
+import random as r
+
+def random_race():
+    #will return a random race using the same d100 probability
+    #as the spell Ressurection
+
+    return('Human')
+
+
+def random_first_name(race):
+    return('Grumblo')
+
+
+def random_last_name(race):
+    return('McTavish')
+
+
+#data structures go here
+#will use lists in the form of race_first, race_last and pull randomly
+
+#####
 def main():
    print('ok')
    return 
