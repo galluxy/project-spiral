@@ -8,19 +8,19 @@ import random as rand
 def random_race():
     #will return a random race using the same d100 probability
     #as the spell Reincarnate
-    roll = rand.randint(0,99)
 
-    race = race_list[roll]
-    
+    race = rand.choice(race_list)
     return(race)
 
 
 def random_first_name(race):
-    return('Grumblo')
+    
+    return rand.choice(first_names[race])
+    
 
 
 def random_last_name(race):
-    return('McTavish')
+    return rand.choice(last_names[race])
 
 
 #data structures go here
@@ -45,20 +45,42 @@ race_list = ['Dragonborn','Dragonborn','Dragonborn','Dragonborn','Hill Dwarf',
              'Human','Human','Human','Human','Tiefling','Tiefling','Tiefling','Tiefling',]
 
 
+####Name nested dicts####
 
-##
-def main():
-   print('ok')
-   return 
+first_names = {'Dragonborn': ['dragonfirst'],
+               'Hill Dwarf' : ['hdwarffirst'],
+               'Mountain Dwarf' : ['mdwarffirst'],
+               'Drow Elf' : ['drowfirst'],
+               'High Elf' : ['highelffirst'],
+               'Wood Elf' : ['woodelffirst'],
+               'Forest Gnome' : ['forestgnomefirst'],
+               'Rock Gnome' : ['rockgnomefirst'],
+               'Half-Elf' : ['halfelffirst'],
+               'Half-Orc' : ['halforcfirst'],
+               'Lightfoot Halfling' : ['lightfoothalflingfirst'],
+               'Stout Halfling' : ['stouthalflingfirst'],
+               'Human' : ['humanfirst1','humanfirst2'],
+               'Tiefling' : ['tieflingfirst']}
 
+last_names = {'Dragonborn': ['dragonlast'],
+               'Hill Dwarf' : ['hdwarflast'],
+               'Mountain Dwarf' : ['mdwarflast'],
+               'Drow Elf' : ['drowlast'],
+               'High Elf' : ['highelflast'],
+               'Wood Elf' : ['woodelflast'],
+               'Forest Gnome' : ['forestgnomelast'],
+               'Rock Gnome' : ['rockgnomelast'],
+               'Half-Elf' : ['halfelflast'],
+               'Half-Orc' : ['halforclast'],
+               'Lightfoot Halfling' : ['lightfoothalflinglast'],
+               'Stout Halfling' : ['stouthalflinglast'],
+               'Human' : ['humanlast1','humanlast2'],
+               'Tiefling' : ['tieflinglast']}
 
 
 import unittest
 
 class TestMain(unittest.TestCase):
-    
-    def test_main(self):
-        self.assertEqual(None,main())
 
     def test_randomness(self):
         #current tolerance is set at 5 in either direction
