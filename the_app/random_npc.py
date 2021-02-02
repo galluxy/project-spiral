@@ -13,14 +13,19 @@ def random_race():
     return(race)
 
 
-def random_first_name(race):
-    
-    return rand.choice(first_names[race])
-    
+def random_name(race):
+
+    #some inelegant if checks to account for races where there is no difference
+    #between names for sub-races
+    if 'Dwarf' in race:
+        race = 'Dwarf'
+    elif 'Elf' in race:
+        race = 'Elf'
+
+    first, last = rand.choice(first_names[race]), rand.choice(last_names[race])
+    return first, last
 
 
-def random_last_name(race):
-    return rand.choice(last_names[race])
 
 
 #data structures go here
@@ -47,12 +52,37 @@ race_list = ['Dragonborn','Dragonborn','Dragonborn','Dragonborn','Hill Dwarf',
 
 ####Name nested dicts####
 
-first_names = {'Dragonborn': ['dragonfirst'],
-               'Hill Dwarf' : ['hdwarffirst'],
-               'Mountain Dwarf' : ['mdwarffirst'],
-               'Drow Elf' : ['drowfirst'],
-               'High Elf' : ['highelffirst'],
-               'Wood Elf' : ['woodelffirst'],
+first_names = {'Dragonborn':
+               #male names
+               ['Arjhan','Balasar','Bharash','Donaar','Ghesh','Heskan','Kriv','Medrash',
+                'Mehen','Nadarr','Panjed','Patrin','Rhogar','Shamash','Shedinn','Tarhun','Torinn',
+                #female names
+                'Akra','Biri','Daar','Farideh','Harann','Havilar','Jheri','Kava','Korinn',
+                'Mishann','Nala','Perra','Raiann','Sora','Surina','Thava','Uadjit'],
+               
+               'Dwarf' :
+               #male names
+               ['Adrik','Alberich','Baern','Barendd','Brottor','Bruenor','Dain','Darrak','Delg',
+                'Eberk','Einkil','Fargrim','Flint','Gardain','Harbek','Kildrak','Morgran','Orsik',
+                'Oskar','Rangrim','Rurik','Taklinn','Thoradin','Thorin','Tordek','Traubon',
+                'Travok','Ulfgar','Veit','Vondal',
+               #female names
+               'Amber','Artin','Audhild','Bardryn','Dagnal','Diesa','Eldeth','Falkrunn','Finellen',
+                'Gunnloda','Gurdis','Helja','Hlin','Kathra','Kirstryd','Ilde','Liftrasa','Mardred',
+                'Riswynn','Sannl','Torbera','Torgga','Vistra'],
+               
+               'Elf' :
+               #adult male names
+               ['Adran','Aelar','Aramil','Arannis','Aust','Beiro','Berrian','Carric','Enialis','Erdan',
+                'Erevan','Galinndan','Hadarai','Heian','Himo','Immeral','Ivellios','Laucian','Mindartis',
+                'Paelias','Peren','Quarion','Riardon','Rolen','Soveliss','Thamior','Tharivol',
+                'Theren','Varis',
+               #adule female names
+               'Adrie','Althaea','Anastrianna','Andraste','Antinua','Bethrynna','Birel','Caelynn',
+                'Drusilia','Enna','Felosial','Ielenia','Jelenneth','Keyleth','Leshanna','Lia',
+                'Meriele','Mialee','Naivara','Quelenna','Quillathe','Sariel','Shanairra','Shava',
+                'Silaqui','Theirastra','Thia','Vadania','Valanthe','Xanaphia'],
+               
                'Forest Gnome' : ['forestgnomefirst'],
                'Rock Gnome' : ['rockgnomefirst'],
                'Half-Elf' : ['halfelffirst'],
@@ -62,12 +92,19 @@ first_names = {'Dragonborn': ['dragonfirst'],
                'Human' : ['humanfirst1','humanfirst2'],
                'Tiefling' : ['tieflingfirst']}
 
-last_names = {'Dragonborn': ['dragonlast'],
-               'Hill Dwarf' : ['hdwarflast'],
-               'Mountain Dwarf' : ['mdwarflast'],
-               'Drow Elf' : ['drowlast'],
-               'High Elf' : ['highelflast'],
-               'Wood Elf' : ['woodelflast'],
+last_names = {'Dragonborn':
+              ['Clethtinthiallor','Daardendrian','Delmirev','Drachedandion','Fenkenkabradon',
+               'Kepeshkmolik','Kerrhylon','Kimbatuul','Linxakasendalor','Myastan','Nemmonis',
+               'Norixius','Ophinshtalajirr','Prexijandilin','Shestendeliath','Turnuroth',
+               'Verthisathurgiesh','Yarjerit'],
+              
+               'Dwarf' : ['Balderk','Battlehammer','Brawnanvil','Dankil','Fireforge','Frostbeard',
+                          'Gorunn','Holderhek','Ironfist','Loderr','Lutgehr','Rumnaheim',
+                          'Strakeln','Torunn','Ungart'],
+              
+               'Elf' : ['Amakiir','Amastacia','Galanodel','Holimion','Ilphelkiir','Liadon',
+                        'Meliamne','Nailo','Siannodel','Xiloscient'],
+              
                'Forest Gnome' : ['forestgnomelast'],
                'Rock Gnome' : ['rockgnomelast'],
                'Half-Elf' : ['halfelflast'],
