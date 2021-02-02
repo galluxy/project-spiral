@@ -1,5 +1,7 @@
 somewhat prioritized list of things to do in the project
 
+TODO FEATURES
+
 create simple python script that when run spits out a random NPC using only raceand name information in the PHB
 
 add on to that script by giving personality quirks
@@ -9,6 +11,10 @@ add a random chance for the NPC to be a 'former adventurer' and thus have a clas
 turn this script into a simple, no-UI-effort  app with an unsaved log of NPCs
 
 allow user in app to make some limiting selections to the randomizer, ex: only human, or no elves
+
+add races from other source books
+
+allow user to set custom chance % for each race
 
 expand the available name list beyond the PHB
 
@@ -21,3 +27,7 @@ build a wiki capable of housing one nation, two cities, and 10 user entered NPCS
 make random NPCs save into the wiki
 
 make random NPCs be able to have info from the wiki, ex: origin city or relationship to an existing NPC
+
+DONE FEATURES
+
+
