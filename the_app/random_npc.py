@@ -17,13 +17,25 @@ def random_name(race):
 
     #some inelegant if checks to account for races where there is no difference
     #between names for sub-races
-    if 'Dwarf' in race:
-        race = 'Dwarf'
+    if race == 'Half-Elf':
+        return 'Bert Sterling'
+    elif race == 'Half-Orc':
+        return 'Gruumsh'
+    elif 'Dwarf' in race:
+        return rand.choice(first_names['Dwarf']) + ' ' + rand.choice(last_names['Dwarf'])
     elif 'Elf' in race:
-        race = 'Elf'
-
-    first, last = rand.choice(first_names[race]), rand.choice(last_names[race])
-    return first, last
+        return rand.choice(first_names['Elf']) + ' ' + rand.choice(last_names['Elf'])
+    elif 'Halfling' in race:
+        return rand.choice(first_names['Halfling']) + ' ' +  rand.choice(last_names['Halfling'])
+    elif 'Gnome' in race:
+        return rand.choice(first_names['Gnome']) + ' ' + rand.choice(last_names['Gnome'])
+    elif race == 'Human':
+        clan = rand.choice(human_clans)
+        return rand.choice(human_first_names[clan]) + ' ' + rand.choice(human_last_names[clan])
+    else:
+        #tiefling, dragonborn
+        return rand.choice(first_names[race]) + ' ' + rand.choice(last_names[race])
+    
 
 
 
@@ -47,7 +59,7 @@ race_list = ['Dragonborn','Dragonborn','Dragonborn','Dragonborn','Hill Dwarf',
              'Stout Halfling','Stout Halfling','Stout Halfling','Stout Halfling','Stout Halfling',
              'Stout Halfling','Stout Halfling','Human','Human','Human','Human','Human','Human',
              'Human','Human','Human','Human','Human','Human','Human','Human','Human','Human',
-             'Human','Human','Human','Human','Tiefling','Tiefling','Tiefling','Tiefling',]
+             'Human','Human','Human','Human','Tiefling','Tiefling','Tiefling','Tiefling']
 
 
 ####Name nested dicts####
@@ -83,13 +95,14 @@ first_names = {'Dragonborn':
                 'Meriele','Mialee','Naivara','Quelenna','Quillathe','Sariel','Shanairra','Shava',
                 'Silaqui','Theirastra','Thia','Vadania','Valanthe','Xanaphia'],
                
-               'Forest Gnome' : ['forestgnomefirst'],
-               'Rock Gnome' : ['rockgnomefirst'],
+               'Gnome' : ['forestgnomefirst'],
+               
                'Half-Elf' : ['halfelffirst'],
+               
                'Half-Orc' : ['halforcfirst'],
-               'Lightfoot Halfling' : ['lightfoothalflingfirst'],
-               'Stout Halfling' : ['stouthalflingfirst'],
-               'Human' : ['humanfirst1','humanfirst2'],
+               
+               'Halfling' : ['lightfoothalflingfirst'],
+               
                'Tiefling' : ['tieflingfirst']}
 
 last_names = {'Dragonborn':
@@ -105,14 +118,38 @@ last_names = {'Dragonborn':
                'Elf' : ['Amakiir','Amastacia','Galanodel','Holimion','Ilphelkiir','Liadon',
                         'Meliamne','Nailo','Siannodel','Xiloscient'],
               
-               'Forest Gnome' : ['forestgnomelast'],
-               'Rock Gnome' : ['rockgnomelast'],
+               'Gnome' : ['forestgnomelast'],
+              
                'Half-Elf' : ['halfelflast'],
+              
                'Half-Orc' : ['halforclast'],
-               'Lightfoot Halfling' : ['lightfoothalflinglast'],
-               'Stout Halfling' : ['stouthalflinglast'],
-               'Human' : ['humanlast1','humanlast2'],
+              
+               'Halfling' : ['lightfoothalflinglast'],
+              
                'Tiefling' : ['tieflinglast']}
+
+gnome_nicknames = []
+
+#Humans
+
+human_clans = ['Calishite','Chondathan']
+
+human_first_names = {'Calishite' :
+                     #male names
+                     ['Aseir','Bardeid','Haseid','Khemed','Mehmen','Sudeiman','Zasheir',
+                      #female names
+                      'Atala','Ceidil','Hama','Jasmal','Meilil','Seipora','Yasheira','Zasheida'],
+                     'Chondathan' :
+                     #male names
+                     ['Darvin','Dorn','Evendur','Gorstag','Grim','Helm','Malark','Morn','Randal','Stedd',
+                      #female names
+                      'Arveene','Esvele','Jhessail','Kerri','Lureene','Miri','Rowan','Shandri','Tessele']}
+
+human_last_names = {'Calishite' :
+                    ['Basha','Dumein','Jassan','Khalid','Mostana','Pashar','Rein'],
+                    'Chondathan' :
+                    ['Amblecrown','Buckman','Dundragon','Evenwood','Greycastle','Tallstag']}
+
 
 
 import unittest
