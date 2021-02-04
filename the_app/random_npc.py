@@ -28,7 +28,7 @@ def random_name(race):
     elif 'Halfling' in race:
         return rand.choice(first_names['Halfling']) + ' ' +  rand.choice(last_names['Halfling'])
     elif 'Gnome' in race:
-        return rand.choice(first_names['Gnome']) + ' ' + rand.choice(last_names['Gnome'])
+        return rand.choice(first_names['Gnome']) + ' ' + rand.choice(last_names['Gnome']) + ' nicknamed ' + rand.choice(gnome_nicknames)
     elif race == 'Human':
         clan = rand.choice(human_clans)
         return rand.choice(human_first_names[clan]) + ' ' + rand.choice(human_last_names[clan])
@@ -101,7 +101,13 @@ first_names = {'Dragonborn':
                
                'Half-Orc' : ['halforcfirst'],
                
-               'Halfling' : ['lightfoothalflingfirst'],
+               'Halfling' :
+               #male names
+               ['Alton','Ander','Cade','Corrin','Eldon','Errich','Finnan','Garret','Lindal','Lyle',
+                'Merric','Milo','Osborn','Perrin','Reed','Roscoe','Wellby',
+                #female names
+                'Andry','Bree','Callie','Cora','Euphemia','Jillian','Kithri','Lavinia','Lidda','Merla',
+                'Nedda','Paela','Portia','Seraphina','Shaena','Trym','Vani','Verna'],
                
                'Tiefling' : ['tieflingfirst']}
 
@@ -111,11 +117,13 @@ last_names = {'Dragonborn':
                'Norixius','Ophinshtalajirr','Prexijandilin','Shestendeliath','Turnuroth',
                'Verthisathurgiesh','Yarjerit'],
               
-               'Dwarf' : ['Balderk','Battlehammer','Brawnanvil','Dankil','Fireforge','Frostbeard',
+               'Dwarf' :
+              ['Balderk','Battlehammer','Brawnanvil','Dankil','Fireforge','Frostbeard',
                           'Gorunn','Holderhek','Ironfist','Loderr','Lutgehr','Rumnaheim',
                           'Strakeln','Torunn','Ungart'],
               
-               'Elf' : ['Amakiir','Amastacia','Galanodel','Holimion','Ilphelkiir','Liadon',
+               'Elf' :
+              ['Amakiir','Amastacia','Galanodel','Holimion','Ilphelkiir','Liadon',
                         'Meliamne','Nailo','Siannodel','Xiloscient'],
               
                'Gnome' : ['forestgnomelast'],
@@ -124,15 +132,18 @@ last_names = {'Dragonborn':
               
                'Half-Orc' : ['halforclast'],
               
-               'Halfling' : ['lightfoothalflinglast'],
+               'Halfling' :
+              ['Brushgather','Goodbarrel','Greenbottle','High-hill','Hilltopple','Leagallow','Tealeaf',
+               'Thorngage','Tosscobble','Underbough'],
               
                'Tiefling' : ['tieflinglast']}
 
-gnome_nicknames = []
+gnome_nicknames = ['Aleslosh','Ashhearth','Badger','Cloak','Doublelock','Flichbatter','Fnipper','Ku','Nim',
+                   'Oneshoe','Pock','Sparklegem','Stumbleduck']
 
 #Humans
 
-human_clans = ['Calishite','Chondathan']
+human_clans = ['Calishite','Chondathan','Damaran','Illuskan','Mulan','Rashemi','Shou','Turami']
 
 human_first_names = {'Calishite' :
                      #male names
@@ -143,12 +154,54 @@ human_first_names = {'Calishite' :
                      #male names
                      ['Darvin','Dorn','Evendur','Gorstag','Grim','Helm','Malark','Morn','Randal','Stedd',
                       #female names
-                      'Arveene','Esvele','Jhessail','Kerri','Lureene','Miri','Rowan','Shandri','Tessele']}
+                      'Arveene','Esvele','Jhessail','Kerri','Lureene','Miri','Rowan','Shandri','Tessele'],
+                     'Damaran' :
+                     #male names
+                     ['Bor','Fodel','Glar','Grigor','Igan','Ivor','Kosef','Mival','Orel','Pavel','Sergor',
+                      #female names
+                      'Aethra','Kara','Katernin','Mara','Natali','Olma','Tana','Zora'],
+                     'Illuskan' :
+                     #male names
+                     ['Ander','Blath','Bran','Frath','Geth','Lander','Luth','Malcer','Stor','Taman','Urth',
+                      #female names
+                      'Amafrey','Betha','Cefrey','Kethra','Mara','Olga','Silifrey','Westra'],
+                     'Mulan' :
+                     #male names
+                     ['Aoth','Bareris','Ehput-Ki','Kethoth','Mumed','Ramas','So-Kehur','Thazar-De','Urhur',
+                      #female names
+                      'Arizima','Chathi','Nephis','Nulara','Murithi','Sefris','Thola','Umara','Zolis'],
+                     'Rashemi' :
+                     #male names
+                     ['Borivik','Faurgar','Jandar','Kanithar','Madislak','Ralmevik','Shaumar','Vladislak',
+                      #female names
+                      'Fyevarra','Hulmarra','Immith','Imzel','Navarra','Shevarra','Tammith','Yuldra'],
+                     'Shou' :
+                     #male names
+                     ['An','Chen','Chi','Fai','Jiang','Jun','Lian','Long','Meng','On','Shan','Shui','Wen',
+                      #female names
+                      'Bai','Chao','Jia','Lei','Mei','Qiao','Shui','Tai'],
+                     'Turami' :
+                     #male names
+                     ['Anton','Diero','Marcon','Pieron','Rimardo','Romero','Salazar','Umbero',
+                      #female names
+                      'Balama','Dona','Faila','Jalana','Luisa','Marta','Quara','Selise','Vonda']}
 
 human_last_names = {'Calishite' :
                     ['Basha','Dumein','Jassan','Khalid','Mostana','Pashar','Rein'],
                     'Chondathan' :
-                    ['Amblecrown','Buckman','Dundragon','Evenwood','Greycastle','Tallstag']}
+                    ['Amblecrown','Buckman','Dundragon','Evenwood','Greycastle','Tallstag'],
+                    'Damaran' :
+                    ['Bersk','Chernin','Dotsk','Kulenov','Marsk','Nemetsk','Shemov','Starag'],
+                    'Illuskan' :
+                    ['Brightwood','Helder','Hornraven','Lackman','Stormwind','Windrivver'],
+                    'Mulan' :
+                    ['Ankhalab','Anskuld','Fezim','Hahpet','Nathandem','Sepret','Uuthrakt'],
+                    'Rashemi' :
+                    ['Chergoba','Dyernina','Iltazyara','Murnyethara','Stayanoga','Ulkmokina'],
+                    'Shou' :
+                    ['Chien','Huang','Kao','Kung','Lao','Ling','Mei','Pin','Shin','Sum','Tan','Wan'],
+                    'Turami' :
+                    ['Agosto','Astorio','Calabra','Domine','Falone','Marivaldi','Pisacar','Ramondo']}
 
 
 
