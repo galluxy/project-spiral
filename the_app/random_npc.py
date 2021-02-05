@@ -15,12 +15,16 @@ def random_race():
 
 def random_name(race):
 
-    #some inelegant if checks to account for races where there is no difference
-    #between names for sub-races
+    #some inelegant if checks to find the race
     if race == 'Half-Elf':
-        return 'Bert Sterling'
+        clan = rand.choice(human_clans)
+        num = rand.randint(1,2)
+        if num == 1:
+            return rand.choice(human_first_names[clan]) + ' ' + rand.choice(last_names['Elf'])
+        else:
+            return rand.choice(first_names['Elf']) + ' ' + rand.choice(human_last_names[clan])
     elif race == 'Half-Orc':
-        return 'Gruumsh'
+        return rand.choice(first_names[race])
     elif 'Dwarf' in race:
         return rand.choice(first_names['Dwarf']) + ' ' + rand.choice(last_names['Dwarf'])
     elif 'Elf' in race:
@@ -28,12 +32,14 @@ def random_name(race):
     elif 'Halfling' in race:
         return rand.choice(first_names['Halfling']) + ' ' +  rand.choice(last_names['Halfling'])
     elif 'Gnome' in race:
-        return rand.choice(first_names['Gnome']) + ' ' + rand.choice(last_names['Gnome']) + ' nicknamed ' + rand.choice(gnome_nicknames)
+        return rand.choice(first_names['Gnome']) + ' ' + rand.choice(last_names['Gnome']) + ' and nicknamed ' + rand.choice(gnome_nicknames)
     elif race == 'Human':
         clan = rand.choice(human_clans)
         return rand.choice(human_first_names[clan]) + ' ' + rand.choice(human_last_names[clan])
+    elif race == 'Tiefling':
+        return rand.choice(first_names[race])
     else:
-        #tiefling, dragonborn
+        #dragonborn
         return rand.choice(first_names[race]) + ' ' + rand.choice(last_names[race])
     
 
@@ -95,11 +101,23 @@ first_names = {'Dragonborn':
                 'Meriele','Mialee','Naivara','Quelenna','Quillathe','Sariel','Shanairra','Shava',
                 'Silaqui','Theirastra','Thia','Vadania','Valanthe','Xanaphia'],
                
-               'Gnome' : ['forestgnomefirst'],
+               'Gnome' :
+               #male names
+               ['Alston','Alvyn','Boddynock','Brocc','Burgell','Dimble','Eldon','Erky','Fonkin',
+                'Frug','Gerbo','Gimble','Glim','Jebeddo','Kellen','Namfoodle','Orryn',
+                'Roondar','Seebo','Sindri','Warryn','Wrenn','Zook',
+                #female names
+                'Bimpnottin','Breena','Caramip','Carlin','Donella','Duvamil','Ella','Ellyjobell',
+                'Ellywick','Lilli','Loopmottin','Lorilla','Mardnab','Nissa','Nyx','Oda',
+                'Orla','Roywyn','Shamil','Tana','Waywocket','Zanna'
+                ],
                
-               'Half-Elf' : ['halfelffirst'],
-               
-               'Half-Orc' : ['halforcfirst'],
+               'Half-Orc' :
+               #male names
+               ['Dench','Feng','Gell','Henk','Holg','Imsh','Keth','Krusk','Mhurren','Ront','Shump','Thokk',
+                #female names
+                'Baggi','Emen','Engong','Kansif','Myev','Neega','Ovak','Ownka','Shautha','Sutha','Vola','Volen','Yevelda'
+                   ],
                
                'Halfling' :
                #male names
@@ -109,7 +127,18 @@ first_names = {'Dragonborn':
                 'Andry','Bree','Callie','Cora','Euphemia','Jillian','Kithri','Lavinia','Lidda','Merla',
                 'Nedda','Paela','Portia','Seraphina','Shaena','Trym','Vani','Verna'],
                
-               'Tiefling' : ['tieflingfirst']}
+               'Tiefling' :
+               #male names
+               ['Akmenos','Amnon','Barakas','Damakos','Ekemon','Iados','Kairon','Leucis','Melech',
+                'Mordai','Morthos','Pelaios','Skamos','Therai',
+               #female names
+                'Akta','Anakis','Bryseis','Criella','Damaia','Ea','Kallista','Lerissa','Makaria',
+                'Nemeia','Orianna','Phelaia','Rieta',
+               #virtue names
+                'Art','Carrion','Chant','Creed','Despair','Excellence','Fear','Glory','Hope','Ideal',
+                'Music','Nowhere','Open','Poetry','Quest','Random','Reverence','Sorrow','Temerity',
+                'Torment','Weary']
+                               }
 
 last_names = {'Dragonborn':
               ['Clethtinthiallor','Daardendrian','Delmirev','Drachedandion','Fenkenkabradon',
@@ -126,17 +155,14 @@ last_names = {'Dragonborn':
               ['Amakiir','Amastacia','Galanodel','Holimion','Ilphelkiir','Liadon',
                         'Meliamne','Nailo','Siannodel','Xiloscient'],
               
-               'Gnome' : ['forestgnomelast'],
-              
-               'Half-Elf' : ['halfelflast'],
-              
-               'Half-Orc' : ['halforclast'],
+               'Gnome' :
+              ['Beren','Daergel','Folkor','Garrick','Nackle','Murnig','Ningel','Raulnor','Scheppen',
+               'Timbers','Turen'],
               
                'Halfling' :
               ['Brushgather','Goodbarrel','Greenbottle','High-hill','Hilltopple','Leagallow','Tealeaf',
                'Thorngage','Tosscobble','Underbough'],
-              
-               'Tiefling' : ['tieflinglast']}
+              }
 
 gnome_nicknames = ['Aleslosh','Ashhearth','Badger','Cloak','Doublelock','Flichbatter','Fnipper','Ku','Nim',
                    'Oneshoe','Pock','Sparklegem','Stumbleduck']
