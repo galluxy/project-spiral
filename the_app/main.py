@@ -8,5 +8,4 @@ def main():
     print(f'Your NPC is a', race, 'named', name)
     new_npc.say_hello()
 
-
 main()

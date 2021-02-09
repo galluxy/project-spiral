@@ -1,5 +1,7 @@
 class NPC:
   'Base class for all NPCs'
+  # all is a class variable 
+  # it allows the NPC class to keep track of its instances
   all = []
 
   def __init__(self, name, race):
