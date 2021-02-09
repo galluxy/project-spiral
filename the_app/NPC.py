@@ -4,10 +4,14 @@ class NPC:
   # it allows the NPC class to keep track of its instances
   all = []
 
-  def __init__(self, name, race):
+  def __init__(self, name, race, role=''):
       self.name = name
       self.race = race
-      self.is_advent = False
+      if role != '':
+          self.is_advent = True
+          self.role = role
+      else:
+          self.is_advent = False
       self.all.append(self)
 
   def displayNPCs(self):
@@ -16,10 +20,18 @@ class NPC:
   def say_hello(self):
       print(f'Hi! I am {self.name} and I am a {self.race}')
 
+  def past_life(self):
+      if self.is_advent:
+          print(f'I was once an adventuring {self.role}!')
+      else:
+          print('I am just commonfolk.')
+
 # Tests to ensure NPC is a class and can instantiate new objects
-# npc1 = NPC('Alex', 'Dragonborn')
-# npc2 = NPC('Brian', 'Elf')
-# npc1.say_hello()
-# npc2.say_hello()
+npc1 = NPC('Alex', 'Dragonborn')
+npc2 = NPC('Brian', 'Elf', 'Rogue')
+npc1.say_hello()
+npc1.past_life()
+npc2.say_hello()
+npc2.past_life()
 # print("NPC.all", NPC.all)
 # print("All NPCs ", npc1 , npc2)

@@ -7,5 +7,6 @@ def main():
     new_npc = NPC(name, race)
     print(f'Your NPC is a', race, 'named', name)
     new_npc.say_hello()
+    new_npc.past_life()
 
 main()
