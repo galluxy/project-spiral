@@ -95,7 +95,7 @@ first_names = {'Dragonborn':
                 'Erevan','Galinndan','Hadarai','Heian','Himo','Immeral','Ivellios','Laucian','Mindartis',
                 'Paelias','Peren','Quarion','Riardon','Rolen','Soveliss','Thamior','Tharivol',
                 'Theren','Varis',
-               #adule female names
+               #adult female names
                'Adrie','Althaea','Anastrianna','Andraste','Antinua','Bethrynna','Birel','Caelynn',
                 'Drusilia','Enna','Felosial','Ielenia','Jelenneth','Keyleth','Leshanna','Lia',
                 'Meriele','Mialee','Naivara','Quelenna','Quillathe','Sariel','Shanairra','Shava',
