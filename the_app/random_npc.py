@@ -1,6 +1,6 @@
 #right now I'm going to stick the base program in main using lists/dicts as 
 #main data structures
-#SQL and mutliple files to come later
+#sql and mutliple files to come later
 
 
 import random as rand
